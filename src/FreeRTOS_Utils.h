@@ -13,4 +13,4 @@ extern QueueHandle_t BOOST_PP_CAT(qName, _QueueHandle);
 #define aGetStaticQueueName(qName) BOOST_PP_CAT(qName, _QueueHandle)
 
 #define aInitStaticQueue(qName, elSize, elCount) \
-aGetQueueName(qName) = xQueueCreateStatic(elCount, elSize, BOOST_PP_CAT(qName, _StaticBuffer), & BOOST_PP_CAT(qName, _StaticQueue));
+BOOST_PP_CAT(qName, _QueueHandle) = xQueueCreateStatic(elCount, elSize, BOOST_PP_CAT(qName, _StaticBuffer), & BOOST_PP_CAT(qName, _StaticQueue));
