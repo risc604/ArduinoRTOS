@@ -8,7 +8,7 @@ static uint8_t BOOST_PP_CAT(qName,_StaticBuffer) [elSize * elCount]; \
 static StaticQueue_t BOOST_PP_CAT(qName,_StaticQueue); \
 static QueueHandle_t BOOST_PP_CAT(qName,_QueueHandle);
 
-#define aGetQueueName( qName ) \
+#define aGetStaticQueueName( qName ) \
 BOOST_PP_CAT(qName,_QueueHandle)
 
 #define aInitStaticQueue( qName, elSize, elCount ) \
