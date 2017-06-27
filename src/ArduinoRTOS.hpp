@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Arduino_RTOS.h"
+#include "Arduino_FreeRTOS.h"
 #include "semphr.h"
 #include "queue.h"
 
