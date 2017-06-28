@@ -30,4 +30,4 @@ static StackType_t BOOST_PP_CAT(tName, _StackSpace)[tStackSize]; \
 #define aGetStaticTaskName(tName) BOOST_PP_CAT(tName, _TaskHandle);
 
 #define aCreateTask(tName, tFunction, tParams, tPriority) \
-BOOST_PP_CAT(tName, _TaskHandle) = xTaskCreateStatic(tFunction, (const char *) #tName, sizeof(BOOST_PP_CAT(tName, _StackSpace)) / sizeof(StackType_t), (const void*)tParams, tPriority, BOOST_PP_CAT(tName, _StackSpace), &BOOST_PP_CAT(tName, _StaticTask));
+BOOST_PP_CAT(tName, _TaskHandle) = xTaskCreateStatic(tFunction, (const char *) #tName, sizeof(BOOST_PP_CAT(tName, _StackSpace)) / sizeof(StackType_t), (void*)tParams, tPriority, BOOST_PP_CAT(tName, _StackSpace), &BOOST_PP_CAT(tName, _StaticTask));
