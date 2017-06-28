@@ -3,6 +3,29 @@
 #include "boost/preprocessor.hpp"
 
 
+// -----------------------------------------------------------------------------
+// ----------------------- Static Semaphores -----------------------------------
+// -----------------------------------------------------------------------------
+#define aDefineStaticSemaphore(sName) \
+static StaticSemaphore_t BOOST_PP_CAT(sName, _StaticSemaphore); \
+static SemaphoreHandle_t BOOST_PP_CAT(sName, _SemaphoreHandle);
+
+#define aGetStaticSemaphoreName(sName) BOOST_PP_CAT(sName, _SemaphoreHandle)
+
+#define aImportStaticSemaphore(sName) \
+extern SemaphoreHandle_t BOOST_PP_CAT(sName, _SemaphoreHandle);
+
+#define aInitStaticMutexSemaphore(sName) \
+BOOST_PP_CAT(sName, _SemaphoreHandle) = xSemaphoreCreateMutexStatic(&BOOST_PP_CAT(sName, _StaticSemaphore));
+
+#define aInitStaticRecursiveMutexSemaphore(sName) \
+BOOST_PP_CAT(sName, _SemaphoreHandle) = xSemaphoreCreateRecursiveMutexStatic(&BOOST_PP_CAT(sName, _StaticSemaphore));
+
+#define aInitStaticBinarySemaphore(sName) \
+BOOST_PP_CAT(sName, _SemaphoreHandle) = xSemaphoreCreateBinaryStatic(&BOOST_PP_CAT(sName, _StaticSemaphore));
+
+#define aInitStaticCountingSemaphore(sName, maxClients, startingCount) \
+BOOST_PP_CAT(sName, _SemaphoreHandle) = xSemaphoreCreateCountingStatic(maxClients, startingCount, &BOOST_PP_CAT(sName, _StaticSemaphore));
 
 
 // -----------------------------------------------------------------------------
