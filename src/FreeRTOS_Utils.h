@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 #define aDefineStaticSemaphore(sName) \
 static StaticSemaphore_t BOOST_PP_CAT(sName, _StaticSemaphore); \
-static SemaphoreHandle_t BOOST_PP_CAT(sName, _SemaphoreHandle);
+SemaphoreHandle_t BOOST_PP_CAT(sName, _SemaphoreHandle);
 
 #define aGetStaticSemaphoreName(sName) BOOST_PP_CAT(sName, _SemaphoreHandle)
 
@@ -51,7 +51,7 @@ BOOST_PP_CAT(qName, _QueueHandle) = xQueueCreateStatic(elCount, elSize, BOOST_PP
 // -----------------------------------------------------------------------------
 #define aDefineStaticTask(tName, tStackSize) \
 static StaticTask_t BOOST_PP_CAT(tName, _StaticTask); \
-static TaskHandle_t BOOST_PP_CAT(tName, _TaskHandle); \
+TaskHandle_t BOOST_PP_CAT(tName, _TaskHandle); \
 static StackType_t BOOST_PP_CAT(tName, _StackSpace)[tStackSize]; \
 
 #define aGetStaticTaskName(tName) BOOST_PP_CAT(tName, _TaskHandle);
